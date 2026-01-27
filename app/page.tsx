@@ -1,3 +1,4 @@
+import { links } from "@/utils/links";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -41,9 +42,13 @@ export default function Home() {
         <div className="flex flex-col gap-3 text-sm font-medium w-full">
           <p className="text-zinc-950 dark:text-zinc-50 font-semibold">Pages:</p>
           <div className="flex flex-col gap-3 text-sm text-zinc-600 dark:text-zinc-400">
-            <Link href="/signup">
-              <span>Signup Page</span>
-            </Link>
+            {
+              links.map(link => (
+                <Link key={link.label} href={link.href}>
+                  <span>{link.label}</span>
+                </Link>
+              ))
+            }
           </div>
         </div>
       </main>

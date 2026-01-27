@@ -1,9 +1,11 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { links } from '@/utils/links'
 import Link from 'next/link'
 import React from 'react'
 
 export default function Page() {
+    
   return (
     <div className="m-auto mt-20 max-w-lg">
         <Card>
@@ -19,8 +21,12 @@ export default function Page() {
             </CardHeader>
             <CardContent className="text-center">
                 <div className="flex flex-col gap-1">
-                    <Button variant='outline' asChild><Link href="/"><span>Home</span></Link></Button>
-                    <Button variant='outline' asChild><Link href="/signup"><span>Signup Page</span></Link></Button>
+                    {
+                        links.map(link=> (
+                            <Button key={link.label} variant='outline' asChild><Link href={link.href}><span>{link.label}</span></Link></Button>
+                        ))
+                    }
+                    
                 </div>
             </CardContent>
         </Card>
