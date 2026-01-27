@@ -10,10 +10,13 @@ import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
+import { useAuth } from "@/providers/AuthProvider"
 
 
 export default function SigninForm() {
     const router = useRouter()
+    const { context } = useAuth()
+
 
     const form = useForm({
         resolver: zodResolver(signinFormSchema),
@@ -40,6 +43,7 @@ export default function SigninForm() {
             }
 
             // successful sign-in
+            await context?.refetch()
             router.push('/dashboard')
 
         } catch (error) {
