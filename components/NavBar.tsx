@@ -2,7 +2,6 @@
 
 import { useAuth } from '@/providers/AuthProvider'
 import Link from 'next/link'
-import React from 'react'
 
 export default function NavBar() {
     const { user } = useAuth()

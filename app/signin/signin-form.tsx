@@ -22,7 +22,8 @@ export default function SigninForm() {
         resolver: zodResolver(signinFormSchema),
         defaultValues: {
             email: '',
-            password: ''
+            password: '',
+            rememberMe: false
         }
     })
 
@@ -47,7 +48,7 @@ export default function SigninForm() {
             router.push('/dashboard')
 
         } catch (error) {
-            toast.error(error.message)
+            toast.error(error instanceof Error ? error.message : 'An error occured')
         }
     }
 
@@ -98,7 +99,7 @@ export default function SigninForm() {
                                         <FormItem>
                                             <div className="flex gap-2">
                                                 <FormControl>
-                                                    <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                                                    <Checkbox checked={field.value as boolean} onCheckedChange={field.onChange} />
                                                 </FormControl>
                                                 <FormLabel>Remember me</FormLabel>
                                             </div>

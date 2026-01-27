@@ -6,7 +6,7 @@ type AuthContextType = {
     session: ReturnType<typeof useClientSession> | null;
 }
 
-export const AuthContext = createContext<AuthContextType>(null);
+export const AuthContext = createContext<AuthContextType>({ session: null });
 
 export const AuthProvider = ({children}: {children: ReactNode}) => {
     const session = useClientSession();

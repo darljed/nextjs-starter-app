@@ -8,14 +8,14 @@ import { Input } from "@/components/ui/input"
 import { useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
-import { FieldSeparator } from "@/components/ui/field"
 import { toast } from "sonner"
-import { sign } from "crypto"
 import { useRouter } from "next/navigation"
+import { useAuth } from "@/providers/AuthProvider"
 
 
 export default function SignupForm() {
     const router = useRouter()
+    const { context } = useAuth()
 
     const form = useForm({
         resolver: zodResolver(signupFormSchema),
@@ -45,10 +45,11 @@ export default function SignupForm() {
             }
 
             // successful signup
+            await context?.refetch()
             router.push('/signup/success')
 
         } catch (error) {
-            toast.error(error.message)
+            toast.error(error instanceof Error ? error.message : "An error has occured")
         }
     }
 
@@ -125,7 +126,7 @@ export default function SignupForm() {
                                         <FormItem>
                                             <div className="flex gap-2">
                                                 <FormControl>
-                                                    <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                                                    <Checkbox checked={field.value as boolean} onCheckedChange={field.onChange} />
                                                 </FormControl>
                                                 <FormLabel>Accept terms and conditions</FormLabel>
                                             </div>
