@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -35,6 +36,14 @@ export default function Home() {
             <a href="https://orm.drizzle.team/docs/overview" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-zinc-200 dark:border-zinc-800 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">Drizzle ORM</a>
             <a href="https://neon.tech/docs/introduction" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-zinc-200 dark:border-zinc-800 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">NeonDB</a>
             <a href="https://ui.shadcn.com/docs" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-zinc-200 dark:border-zinc-800 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">shadcn/ui</a>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 text-sm font-medium w-full">
+          <p className="text-zinc-950 dark:text-zinc-50 font-semibold">Pages:</p>
+          <div className="flex flex-col gap-3 text-sm text-zinc-600 dark:text-zinc-400">
+            <Link href="/signup">
+              <span>Signup Page</span>
+            </Link>
           </div>
         </div>
       </main>
