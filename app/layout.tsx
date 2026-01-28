@@ -6,6 +6,7 @@ import Link from "next/link";
 import { AuthProvider } from "@/providers/AuthProvider";
 import NavBar from "@/components/NavBar";
 import SearchParamAccessor from "@/components/SearchParamAccessor";
+import { Suspense } from "react";
 
 const montserrat = Montserrat({ weight: ["100","200","300","400","500","600","700","800","900"],
   subsets: ["latin"],
@@ -28,7 +29,9 @@ export default function RootLayout({
         <body
           className={`${montserrat} antialiased`}
         >
-          <SearchParamAccessor />
+          <Suspense>
+            <SearchParamAccessor />
+          </Suspense>
           <NavBar />
           <Toaster richColors position="top-right" />
             {children}
