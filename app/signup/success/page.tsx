@@ -1,9 +1,18 @@
+'use client'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { useAuth } from '@/providers/AuthProvider'
 import { links } from '@/utils/links'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 export default function Page() {
+    const { session } = useAuth()
+    const router = useRouter()
+
+    if(!session){
+        router.push('/signin?error=You must login first')
+    }
     
   return (
     <div className="m-auto mt-20 max-w-lg">

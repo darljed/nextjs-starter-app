@@ -46,7 +46,7 @@ export default function SignupForm() {
 
             // successful signup
             await context?.refetch()
-            router.push('/signup/success')
+            router.push('/signup/verify')
 
         } catch (error) {
             toast.error(error instanceof Error ? error.message : "An error has occured")

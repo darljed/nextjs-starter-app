@@ -16,7 +16,7 @@ export default function Home() {
         />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            Next.js Starter Template
+            Starter Template
           </h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             A modern full-stack boilerplate with authentication, database, and UI components ready to go.
@@ -29,17 +29,7 @@ export default function Home() {
             <p><span className="font-semibold text-zinc-950 dark:text-zinc-50">shadcn/ui</span> - Beautiful UI components</p>
           </div>
         </div>
-        <div className="flex flex-col gap-3 text-sm font-medium w-full">
-          <p className="text-zinc-950 dark:text-zinc-50 font-semibold">Documentation:</p>
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-            <a href="https://nextjs.org/docs" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-zinc-200 dark:border-zinc-800 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">Next.js</a>
-            <a href="https://www.better-auth.com/docs" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-zinc-200 dark:border-zinc-800 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">BetterAuth</a>
-            <a href="https://orm.drizzle.team/docs/overview" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-zinc-200 dark:border-zinc-800 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">Drizzle ORM</a>
-            <a href="https://neon.tech/docs/introduction" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-zinc-200 dark:border-zinc-800 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">NeonDB</a>
-            <a href="https://ui.shadcn.com/docs" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-zinc-200 dark:border-zinc-800 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">shadcn/ui</a>
-          </div>
-        </div>
-        <div className="flex flex-col gap-3 text-sm font-medium w-full">
+        <div className="flex flex-col gap-3 text-sm font-medium w-full mt-10">
           <p className="text-zinc-950 dark:text-zinc-50 font-semibold">Pages:</p>
           <div className="flex flex-col gap-3 text-sm text-zinc-600 dark:text-zinc-400">
             {
@@ -49,6 +39,16 @@ export default function Home() {
                 </Link>
               ))
             }
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 text-sm font-medium w-full mt-10">
+          <p className="text-zinc-950 dark:text-zinc-50 font-semibold">Documentation:</p>
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+            <a href="https://nextjs.org/docs" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-zinc-200 dark:border-zinc-800 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">Next.js</a>
+            <a href="https://www.better-auth.com/docs" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-zinc-200 dark:border-zinc-800 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">BetterAuth</a>
+            <a href="https://orm.drizzle.team/docs/overview" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-zinc-200 dark:border-zinc-800 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">Drizzle ORM</a>
+            <a href="https://neon.tech/docs/introduction" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-zinc-200 dark:border-zinc-800 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">NeonDB</a>
+            <a href="https://ui.shadcn.com/docs" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-zinc-200 dark:border-zinc-800 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">shadcn/ui</a>
           </div>
         </div>
       </main>

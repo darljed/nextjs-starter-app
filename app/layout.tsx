@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import Link from "next/link";
 import { AuthProvider } from "@/providers/AuthProvider";
 import NavBar from "@/components/NavBar";
+import SearchParamAccessor from "@/components/SearchParamAccessor";
 
 const montserrat = Montserrat({ weight: ["100","200","300","400","500","600","700","800","900"],
   subsets: ["latin"],
@@ -12,8 +13,8 @@ const montserrat = Montserrat({ weight: ["100","200","300","400","500","600","70
 
 
 export const metadata: Metadata = {
-  title: "NextJS Starter App",
-  description: "Boiler template for easy jumpstart of an app",
+  title: "Next.js Starter App",
+  description: "A modern full-stack boilerplate with authentication, database, and UI components ready to go.",
 };
 
 export default function RootLayout({
@@ -27,6 +28,7 @@ export default function RootLayout({
         <body
           className={`${montserrat} antialiased`}
         >
+          <SearchParamAccessor />
           <NavBar />
           <Toaster richColors position="top-right" />
             {children}

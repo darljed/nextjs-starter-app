@@ -1,32 +1,17 @@
 'use client'
+import SendVerificationEmail from '@/components/SendVerificationEmail'
+import SignOut from '@/components/SignOut'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { authClient } from '@/lib/auth-client'
 import { useAuth } from '@/providers/AuthProvider'
-import { LogOut } from 'lucide-react'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
-import { toast } from 'sonner'
+import { LogOut, MailWarning } from 'lucide-react'
 
 export default function Dashboard() {
-    const [signingOut, setSigningOut ] = useState<boolean>(false)
 
-    const { user, context } = useAuth()
+    const { user } = useAuth()
 
-    const router = useRouter()
-    async function signout(){
-        setSigningOut(true)
-        await authClient.signOut({
-            fetchOptions: {
-                onSuccess: async () => {
-                    setSigningOut(false)
-                    toast.success('You have been signed out.')
-                    await context?.refetch()
-                    router.push('/')
-                }
-            }
-        })
-    }
     
     return (
         <div>
@@ -41,13 +26,25 @@ export default function Dashboard() {
                     </CardHeader>
                     <CardContent>
                         <p><strong>Name:</strong> {user?.name}</p>
-                        <p><strong>Email:</strong> {user?.email}</p>
+                        <p><strong>Email:</strong> {user?.email} {user?.emailVerified && <Badge variant="secondary">verified</Badge>}</p>
+                        {
+                            !user?.emailVerified && (
+                                <div className="mt-2">
+                                    <Alert>
+                                        <MailWarning />
+                                        <AlertTitle>Email not verified</AlertTitle>
+                                        <AlertDescription>
+                                            Please check your mailbox to verify your email.
+                                            <div>
+                                                <SendVerificationEmail />
+                                            </div>
+                                        </AlertDescription>
+                                    </Alert>
+                                </div>)
+                        }
                     </CardContent>
                     <CardFooter>
-                        <Button disabled={signingOut} onClick={signout}>
-                            Sign Out
-                            <LogOut size={12} />
-                        </Button>
+                        <SignOut />
                     </CardFooter>
                 </Card>
         </div>

@@ -11,7 +11,7 @@ export default async function layout({ children }: {
     })
     
     if(!session){
-        redirect('/signin?m=You must login first')
+        redirect('/signin?error=You must login first')
     }
 
   return (
