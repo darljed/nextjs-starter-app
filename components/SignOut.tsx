@@ -6,8 +6,10 @@ import React, { useState } from 'react'
 import { toast } from 'sonner'
 import { Button } from './ui/button'
 import { Loader, LogOut } from 'lucide-react'
+import { SidebarMenuButton, useSidebar } from './ui/sidebar'
 
 export default function SignOut() {
+    const { state } = useSidebar()
     const [signingOut, setSigningOut ] = useState<boolean>(false)
     const { context } = useAuth()
 
@@ -27,12 +29,12 @@ export default function SignOut() {
     }
 
     return (
-        <Button disabled={signingOut} onClick={signout} className="flex gap-2 text-black" variant="outline">
-            Sign Out
-            <LogOut size={12} />
+        <SidebarMenuButton disabled={signingOut} onClick={signout} className={`flex gap-2 bg-red-400 text-white hover:bg-red-500 hover:text-white  ${state === 'expanded' ? 'justify-center' : ''}`} variant="outline">
+            
             {
-                signingOut && <Loader className="animate-spin" />
+                signingOut ? <Loader className="animate-spin" /> : <LogOut size={12} />
             }
-        </Button>
+            <span>Sign Out</span>
+        </SidebarMenuButton>
     )
 }

@@ -32,7 +32,6 @@ export default function RootLayout({
           <Suspense>
             <SearchParamAccessor />
           </Suspense>
-          <NavBar />
           <Toaster richColors position="top-right" />
             {children}
         </body>
